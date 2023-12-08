@@ -1,0 +1,90 @@
+﻿<Page x:Class="practice1.checkabsent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:practice1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="checkabsent">
+
+
+    <Grid Background="#272537">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame  Name="frame" Grid.ColumnSpan="3" Grid.RowSpan="2" ></Frame>
+        <TextBlock  Margin="5,15,0,0" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="11" Name="tbname" ></TextBlock>
+        <StackPanel Name="sp" Grid.Row="1">
+            <RadioButton FontFamily="/Fonts/#Steppe" Click="RadioButton_Click"  Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Вернуться назад"    VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
+            <RadioButton Click="RadioButton_Click_1" FontFamily="/Fonts/#Steppe" Margin="0,10,0,0" Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Посмотреть события" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
+            <RadioButton FontFamily="/Fonts/#Steppe" Margin="0,10,0,0"  Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Выйти" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" Click="RadioButton_Checked" ></RadioButton>
+        </StackPanel>
+        <ListBox  Grid.Column="1"  Background="#22202f" SelectionChanged="lbhooky_SelectionChanged"  ItemsSource="{Binding database.absents}"  Name="lbhooky" Grid.Row="1" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock FontFamily="/Fonts/#Steppe" Foreground="White"  FontWeight="Light"  FontSize="13">
+                     <Run Text="{Binding surname}"> </Run>
+                     <Run Text="{Binding name}" ></Run>                    
+                     <Run Text="{Binding patronymic}" ></Run>
+                     <LineBreak></LineBreak>
+                     <Run Text="Дата"></Run>
+                     <Run Text="{Binding date1}" ></Run>
+                     <LineBreak></LineBreak>
+                      <Run Text="Причина"></Run>
+                      <Run Text="{Binding type_absent}" ></Run>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Name="sp1" Margin="0,0,150,0" Grid.Column="1" >
+            <TextBlock HorizontalAlignment="Center" Margin="10" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="12" Text="Поиск по ФИО"></TextBlock>
+            <TextBox HorizontalAlignment="Center" Height="20" BorderBrush="White"  Foreground="White" Background="#22202f" Width="100" Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+             Name="logtb" FontSize="14" Margin="10,0,0,0" FontFamily="/Fonts/#Steppe" ></TextBox>
+        </StackPanel>
+        <StackPanel Name="sp2" Grid.Column="1" Margin="150,0,0,0">
+            <TextBlock HorizontalAlignment="Center" Margin="10" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="12" Text="Поиск по дате"></TextBlock>
+            <TextBox HorizontalAlignment="Center" Height="20" BorderBrush="White" Text="{Binding SearchKeyworddate, UpdateSourceTrigger=PropertyChanged}" 
+                     Foreground="White" Background="#22202f" Width="100" FontSize="14" FontFamily="/Fonts/#Steppe" ></TextBox>
+        </StackPanel>
+        <TextBlock Name="tb3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Fonts/#Gogh"  Foreground="White"   FontSize="14" Grid.Column="2">
+            <Run  Text="Выберите параметры для пропуска"></Run>
+            <LineBreak></LineBreak>
+             <Run  Text="и сохраните данные в word"></Run>
+        </TextBlock>
+        <StackPanel Name="sp3" Grid.Row="1" Grid.Column="2">
+            <Button  VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,0" Background="#272537" Click="OpenCalendarButton_Click" >
+                <StackPanel Background="#22202f" >
+                    <Image Source="/Image/calendar.png" Width="40" Height="40"/>
+                </StackPanel>
+           </Button>
+            <Button FontFamily="/Fonts/#Steppe" HorizontalAlignment="Left"  Margin="5,10,0,0" Style="{DynamicResource ButtonStyle1}" Foreground="White" Height="30" Width="120" Content="Изменить" Click="Button_Click" ></Button>
+            <Button FontFamily="/Fonts/#Steppe" HorizontalAlignment="Right"  Margin="0,-30,5,0" Style="{DynamicResource ButtonStyle1}" Foreground="White" Height="30" Width="120" Content="Удалить" Click="Button_Click_1" ></Button>
+            <Calendar Visibility="Hidden" Margin="0,3,0,0" CalendarItemStyle="{StaticResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyle1}" Style="{DynamicResource CalendarStyle1}"    Background="#22202f"  HorizontalAlignment="Center"  FontSize="50" x:Name="calendar1" FirstDayOfWeek="Monday" SelectedDatesChanged="calendar1_SelectedDatesChanged"
+            xmlns:sys="clr-namespace:System;assembly=mscorlib" Height="163" Width="257">
+                <Calendar.LayoutTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.2" ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Calendar.LayoutTransform>
+            </Calendar>
+            <StackPanel HorizontalAlignment="Center">
+                <Button FontFamily="/Fonts/#Steppe"   Margin="0,10,0,0" Style="{DynamicResource ButtonStyle1}" Foreground="White" Height="30" Width="120" Content="Сохранить" Click="Button_Click_2" ></Button>
+            </StackPanel>
+        </StackPanel>
+        <Border Name="sp4"  Margin="0,5,70,0" VerticalAlignment="Top" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="2" BorderThickness="1,0,1,1" BorderBrush="White">
+            <TextBox FontSize="17"  Height="32" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="White"  Foreground="White" Background="#22202f" Name="tbdate" ></TextBox>
+        </Border>
+        <ComboBox BorderBrush="White"  BorderThickness="2,2,2,2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Margin="0,5,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top"  Height="32" Width="115" HorizontalAlignment="Right" FontFamily="/Fonts/#Steppe"  Style="{DynamicResource ComboBoxStyle1}"    Name="cbtype" ItemsSource="{Binding database.types_Absents}" DisplayMemberPath="name"   >
+        </ComboBox>
+    </Grid>
+</Page>

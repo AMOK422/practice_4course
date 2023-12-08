@@ -1,0 +1,46 @@
+﻿<Page x:Class="practice1.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:practice1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Authorization">
+    
+    <Grid   Background="#272537" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*" ></ColumnDefinition>
+            <ColumnDefinition  ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+    
+        <StackPanel Grid.Row="1" Grid.Column="1"  Name="sp"    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock TextAlignment="Center"  Foreground="White" Width="200" FontFamily="/Fonts/#Gogh" Height="60" Text="Смородинка"   FontSize="20" Margin="0,5,0,0" Padding="55,20,0,0"  >
+                <TextBlock.Background>
+                    <ImageBrush  ImageSource="/Image/icon_app.png" Stretch="Uniform"  AlignmentX="Left">
+                    </ImageBrush>
+                </TextBlock.Background>
+            </TextBlock>
+            <Label FontFamily="/Fonts/#Gogh" Margin="10" FontWeight="Bold" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Foreground="White" FontSize="35">Вход</Label>
+            <Label FontFamily="/Fonts/#Steppe" Margin="25,0,0,10"  FontSize="15"  HorizontalAlignment="Left" Foreground="White" >Введите логин</Label>
+            <TextBox  Foreground="White" Width="150" FontFamily="/Fonts/#Steppe"  BorderThickness="0,0,0,1"  Name="logtb" FontSize="25" Margin="0,5,0,0" Padding="35,0,0,0"  >
+                <TextBox.Background>
+                    <ImageBrush  ImageSource="/Image/user.png" Stretch="Uniform"  AlignmentX="Left">
+                    </ImageBrush>
+                </TextBox.Background>
+            </TextBox>
+            <Label FontFamily="/Fonts/#Steppe" Margin="25,10,0,10" FontSize="15"  Foreground="White" >Введите пароль</Label>
+            <PasswordBox  Foreground="White" Width="150"   BorderThickness="0,0,0,1"  FontSize="25" Name="passwordBox1"  Margin="0,5,0,0" Padding="35,0,0,0" >
+                <PasswordBox.Background>
+                    <ImageBrush ImageSource="/Image/key.png" Stretch="Uniform" AlignmentX="Left">
+                        
+                    </ImageBrush>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <Button Margin="0,25,0,0" Style="{StaticResource ButtonStyle1}" Background="#22202f" Foreground="White"  Grid.ColumnSpan="2" Width="120"  Height="35" Click="Button_Click" >Войти</Button>
+        </StackPanel>
+        <Frame NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Name="frame"></Frame>
+    </Grid>
+    
+</Page>

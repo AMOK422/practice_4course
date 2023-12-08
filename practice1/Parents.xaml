@@ -1,0 +1,79 @@
+﻿<Page x:Class="practice1.Parents"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:practice1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Parents">
+
+    <Grid   Background="#272537">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="3*" ></ColumnDefinition>
+            <ColumnDefinition Width="3*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame Grid.ColumnSpan="3" Grid.RowSpan="3" Name="frame"></Frame>
+        <StackPanel Name="sp1" Grid.Row="1">
+            <RadioButton  Click="Button_Click" FontFamily="/Fonts/#Steppe"   Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Вернуться назад"    VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
+            <RadioButton FontFamily="/Fonts/#Steppe" Margin="0,10,0,0" Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Посмотреть события" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
+            <RadioButton Click="RadioButton_Click" FontFamily="/Fonts/#Steppe" Margin="0,10,0,0"  Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Выйти" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9"  ></RadioButton>
+        </StackPanel>
+        <TextBlock Name="tbname"  VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="11" ></TextBlock>
+        <Label HorizontalAlignment="Center" FontFamily="/Fonts/#Gogh" Name="lb1" Foreground="White" Margin="13" FontSize="18" Grid.Column="1" ></Label>
+        <Label HorizontalAlignment="Center" FontFamily="/Fonts/#Gogh" Name="lb2" Foreground="White" Margin="13" FontSize="18" Grid.Column="2" ></Label>
+        <ListBox SelectionChanged="lbparent_SelectionChanged" Margin="0,0,0,200"  Name="lbparent"  Grid.Row="1" Grid.Column="1"  Background="#22202f"  ItemsSource="{Binding database.parents}"  >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontFamily="/Fonts/#Steppe" Foreground="White"  FontWeight="Light"  FontSize="14">
+                             <Run Text="ФИО" ></Run>
+                           <Run Text="{Binding FIO_father}"> </Run>
+                            <LineBreak></LineBreak>
+                            <LineBreak></LineBreak>
+                            <Run Text="Адрес" ></Run>
+                           <Run Text="{Binding address_father}" ></Run>  
+                            <LineBreak></LineBreak>
+                            <LineBreak></LineBreak>
+                             <Run Text="Телефон" ></Run>
+                           <Run Text="{Binding telephone_father}" ></Run>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox SelectionChanged="lbparent_SelectionChanged" Margin="0,0,0,200"  Name="lbmother"  Grid.Row="1" Grid.Column="2"  Background="#22202f"  ItemsSource="{Binding database.parents}"  >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontFamily="/Fonts/#Steppe" Foreground="White"  FontWeight="Light"  FontSize="14">
+                       <Run Text="ФИО" ></Run>
+                       <Run Text="{Binding FIO_mother}"> </Run>
+                       <LineBreak></LineBreak>
+                       <LineBreak></LineBreak>
+                      <Run Text="Адрес" ></Run>
+                       <Run Text="{Binding address_mother}" ></Run> 
+                            <LineBreak></LineBreak>
+                            <LineBreak></LineBreak>
+                      <Run Text="Телефон" ></Run>
+                       <Run Text="{Binding telephone_mother}" ></Run>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
