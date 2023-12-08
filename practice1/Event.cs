@@ -10,12 +10,18 @@ namespace practice1
     {
 
         public string name {  get; set; }
-        public DateTime start { get; set; }
-        public DateTime end { get; set; }
+     
+
+        public TimeSpan start {  get; set; }
+        public TimeSpan end { get; set; }
         public string place { get; set; }
 
         public string start1 { get; set; }
         public string end1 { get; set; }
+
+        public DateTime date { get; set; }
+
+        public string date2 { get; set; }
 
     }
 }

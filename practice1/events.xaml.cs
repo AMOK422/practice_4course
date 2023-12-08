@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using DocumentFormat.OpenXml.VariantTypes;
+using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
@@ -60,9 +61,10 @@ namespace practice1
         public void loadevent()
         {
             
-            NpgsqlCommand command1 = database.GetCommand("SELECT  \"events\".\"id\",  \"events\".\"name\",  \"events\".\"start\", \"events\".\"end\",  \"place\".\"name_place\"" +
+            NpgsqlCommand command1 = database.GetCommand("SELECT  \"events\".\"id\",  \"events\".\"name\",  \"events\".\"start\", \"events\".\"end\",  \"place\".\"name_place\" ,   \"events\".\"date\" " +
             " FROM \"events\", \"place\", \"Group\"" +
-            " WHERE \"events\".\"place\" = \"place\".\"id\" AND \"events\".\"group_id\" = \"Group\".\"id\" AND  \"Group\".\"id\" = @group ");
+            " WHERE \"events\".\"place\" = \"place\".\"id\" AND \"events\".\"group_id\" = \"Group\".\"id\" AND  \"Group\".\"id\" = @group " +
+            "ORDER BY  \"events\".\"date\"");
             command1.Parameters.AddWithValue("@group", NpgsqlDbType.Integer, database.id_group);
             NpgsqlDataReader aaa = command1.ExecuteReader();
             if (aaa.HasRows)
@@ -72,11 +74,14 @@ namespace practice1
                    
                     Event events = new Event();
                     events.name = aaa.GetString(1);
-                    events.start = aaa.GetDateTime(2);
-                    events.start1 = events.start.ToString("dd/MM/yyyy HH:mm:ss");
-                    events.end = aaa.GetDateTime(3);
-                    events.end1 = events.end.ToString("dd/MM/yyyy HH:mm:ss");
+                    events.start = aaa.GetTimeSpan(2);
+                    events.end = aaa.GetTimeSpan(3);
+                    events.start1 = events.start.ToString("hh':'mm");
+                    events.end1 = events.end.ToString("hh':'mm");
                     events.place = aaa.GetString(4);
+                    events.date = aaa.GetDateTime(5);
+                    string a = events.date.ToString();
+                    events.date2 = DateTime.Parse(a).ToShortDateString();
                     database.events.Add(events);
                 }
                 aaa.Close();

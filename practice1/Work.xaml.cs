@@ -61,16 +61,21 @@ namespace practice1
       
         private void calendar1_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
+            DateTime? selectedDate = calendar1.SelectedDate; //я не знаю почему datatime но уже сделано
             DateTime selected = calendar1.SelectedDate ?? DateTime.MinValue;
-            if (selected.DayOfWeek == DayOfWeek.Saturday || selected.DayOfWeek == DayOfWeek.Sunday)
+            if (selected.DayOfWeek == DayOfWeek.Saturday || selected.DayOfWeek == DayOfWeek.Sunday) //Проверка чтобы не вносить пропуски в выходные
             {
+                selectedDate = null;
+                database.date = null;
+                lbdata.Text = ("");
                 database.message = ("В выходные нельзя добавлять пропуск");
                 database.OpenNotification_Click();
                 //MessageBox.Show
             }
             else
             {
-                DateTime? selectedDate = calendar1.SelectedDate;
+                
+                selectedDate = calendar1.SelectedDate; 
                 database.date = selectedDate;
                 lbdata.Text = selectedDate.ToString();
                 lbdata.Text = DateTime.Parse(lbdata.Text).ToShortDateString();
