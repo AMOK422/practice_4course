@@ -25,9 +25,7 @@ namespace practice1
         public MainWindow()
         {
             InitializeComponent();
-            
             database.Connect("localhost", "5432", "postgres", "1", "sad");
-
             frame.Navigate(new Authorization());
         }
 

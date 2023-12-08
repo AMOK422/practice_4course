@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Authorization">
-    
+
     <Grid   Background="#272537" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -42,5 +42,5 @@
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Name="frame"></Frame>
     </Grid>
-    
+
 </Page>

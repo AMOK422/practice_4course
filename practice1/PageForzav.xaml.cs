@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace practice1
@@ -18,12 +17,11 @@ namespace practice1
     /// <summary>
     /// Логика взаимодействия для PageForzav.xaml
     /// </summary>
-    public partial class PageForzav : Page
+    public partial class PageForzav : Window
     {
         public PageForzav()
         {
             InitializeComponent();
-          
         }
     }
 }

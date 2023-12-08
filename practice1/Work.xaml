@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:practice1"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Work"
-    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
-    <Grid Background="#272537">
+      Title="Work"     
+       xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <Grid  Background="#272537">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -18,15 +18,15 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="6*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Frame Name="frame" Grid.ColumnSpan="3" Grid.RowSpan="2" ></Frame>
-            <TextBlock Margin="5,17,0,0" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="11" Name="tbname" ></TextBlock>
-            <StackPanel Name="sp" Grid.Row="1">
-                <RadioButton FontFamily="/Fonts/#Steppe"  Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Посмотреть пропуски" Click="Button_Click_travel_checkhooky"   VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
+            <Frame  Name="frame" Grid.ColumnSpan="3" Grid.RowSpan="2" ></Frame>
+            <TextBlock  Margin="5,17,0,0" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="11" Name="tbname" ></TextBlock>
+            <StackPanel  Name="sp" Grid.Row="1">
+                <RadioButton  FontFamily="/Fonts/#Steppe"  Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Посмотреть пропуски" Click="Button_Click_travel_checkhooky"   VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
                 <RadioButton Click="RadioButton_Click_1" FontFamily="/Fonts/#Steppe" Margin="0,10,0,0" Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Посмотреть события" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
                 <RadioButton FontFamily="/Fonts/#Steppe" Margin="0,10,0,0" Click="RadioButton_Click" Style="{StaticResource MenuButtonTheme}" Height="40" Width="133" Content="Выйти" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="White"  FontSize="9" ></RadioButton>
             </StackPanel>
             <TextBlock Margin="15" FontFamily="/Fonts/#Gogh"  Grid.Column="1" FontSize="14" Name="tbnamegroup" Foreground="White" ></TextBlock>
-            <ListBox MouseDoubleClick="lbkids_MouseDoubleClick" Grid.Row="1" Grid.Column="1"  SelectionChanged="lbkids_SelectionChanged" Background="#22202f"  ItemsSource="{Binding database.kids}"  x:Name="lbkids" >
+            <ListBox  MouseDoubleClick="lbkids_MouseDoubleClick" Grid.Row="1" Grid.Column="1"  SelectionChanged="lbkids_SelectionChanged" Background="#22202f"  ItemsSource="{Binding database.kids}"  x:Name="lbkids" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>

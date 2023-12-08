@@ -30,6 +30,7 @@ namespace practice1
             tbnamegroup.Text = database.name_group + (" ") + database.number_group.ToString();
             loadkids();
             load_type();
+            
             Binding binding = new Binding();
             binding.Source = database.Kids;
             cbtype.ItemsSource = database.types_Absents; 
