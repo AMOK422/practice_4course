@@ -46,6 +46,7 @@ namespace practice1
             lbkids.Visibility = Visibility.Hidden;
             lb1.Visibility = Visibility.Hidden;
             lb2.Visibility = Visibility.Hidden;
+            database.Kids.Clear();
             frame.Navigate(new Authorization());  
         }
 

@@ -27,7 +27,6 @@ namespace practice1
         {
             InitializeComponent();
             database.Connect("localhost", "5432", "postgres", "1", "sad");
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -68,7 +67,7 @@ namespace practice1
                             frame.Navigate(new Work());
                             break;
                         case "manager":
-                            result.Close();
+                            result.Close();                        
                             sp.Visibility = Visibility.Hidden;
                             frame.Navigate(new PageForzav());
                             break;

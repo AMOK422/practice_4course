@@ -123,6 +123,7 @@
     <Compile Include="events.xaml.cs">
       <DependentUpon>events.xaml</DependentUpon>
     </Compile>
+    <Compile Include="group.cs" />
     <Compile Include="kids.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Message.xaml.cs">
@@ -244,6 +245,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\icon_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\krest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\trash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

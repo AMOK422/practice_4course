@@ -24,6 +24,7 @@ using Run = DocumentFormat.OpenXml.Wordprocessing.Run;
 using System.IO;
 using Paragraph = DocumentFormat.OpenXml.Wordprocessing.Paragraph;
 using DocumentFormat.OpenXml.ExtendedProperties;
+using DocumentFormat.OpenXml.Vml;
 
 namespace practice1
 {
@@ -69,6 +70,7 @@ namespace practice1
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
+            butq.Visibility = Visibility.Hidden;
             tbname.Visibility = Visibility.Hidden;
             sp.Visibility = Visibility.Hidden;
             sp1.Visibility = Visibility.Hidden;
@@ -153,7 +155,6 @@ namespace practice1
                     {
                         NpgsqlCommand command = database.GetCommand("UPDATE  \"Absents\" SET  type=@type WHERE \"Absents\".\"id\" = @id_absent");
                         command.Parameters.AddWithValue("@id_absent", NpgsqlDbType.Integer, id);
-
                         command.Parameters.AddWithValue("@type", NpgsqlDbType.Integer, id_type);
                         var result = command.ExecuteNonQuery();
                         if (result == 1)
@@ -218,7 +219,9 @@ namespace practice1
                 var result = command.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Пропуск успешно удален");
+                    database.message = ("Пропуск успешно удален");
+                    database.OpenNotification_Click();
+                    //MessageBox.Show("Пропуск успешно удален");
                     database.absents.Remove(selectitemlist);
                 }
                 else
@@ -296,15 +299,18 @@ namespace practice1
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+
 
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
+            butq.Visibility = Visibility.Hidden;
             tbname.Visibility = Visibility.Hidden;
             sp.Visibility = Visibility.Hidden;
             sp1.Visibility = Visibility.Hidden;
@@ -322,6 +328,7 @@ namespace practice1
 
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)
         {
+            butq.Visibility = Visibility.Hidden;
             tbname.Visibility = Visibility.Hidden;
             sp.Visibility = Visibility.Hidden;
             sp1.Visibility = Visibility.Hidden;
@@ -333,6 +340,12 @@ namespace practice1
             cbtype.Visibility = Visibility.Hidden;
             database.events.Clear();
             frame.Navigate(new events());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            database.message = ("Для фильтрации за месяц нужно написать точку - . перед номером месяца. Пример для фильтрации за декабрь напишите .12") ;
+            database.OpenNotification_Click();
         }
     }
 }

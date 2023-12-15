@@ -17,6 +17,10 @@ namespace practice1
         public int id_father { get; set; }
         public int id_mother { get; set; }
 
+        public int namegroup { get; set; }
+
+        public string avg_age_group { get; set; }
+
         //public string type { get; set;}
     }
 }

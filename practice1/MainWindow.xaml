@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid  >
         <Frame NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Name="frame"></Frame>
+        
     </Grid>
 </Window>

@@ -47,12 +47,16 @@
             <TextBlock HorizontalAlignment="Center" Margin="10" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="12" Text="Поиск по ФИО"></TextBlock>
             <TextBox HorizontalAlignment="Center" Height="20" BorderBrush="White"  Foreground="White" Background="#22202f" Width="100" Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
              Name="logtb" FontSize="14" Margin="10,0,0,0" FontFamily="/Fonts/#Steppe" ></TextBox>
+            
         </StackPanel>
         <StackPanel Name="sp2" Grid.Column="1" Margin="150,0,0,0">
             <TextBlock HorizontalAlignment="Center" Margin="10" FontFamily="/Fonts/#Gogh" Foreground="White"  FontSize="12" Text="Поиск по дате"></TextBlock>
             <TextBox HorizontalAlignment="Center" Height="20" BorderBrush="White" Text="{Binding SearchKeyworddate, UpdateSourceTrigger=PropertyChanged}" 
                      Foreground="White" Background="#22202f" Width="100" FontSize="14" FontFamily="/Fonts/#Steppe" ></TextBox>
-        </StackPanel>
+                </StackPanel>
+        <Button Name="butq" Click="Button_Click_3"  BorderThickness="0" Background="#272537" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"  Height="40" Width="40"    >
+            <Image Source="/Image/icon.png" ></Image>
+        </Button>
         <TextBlock Name="tb3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Fonts/#Gogh"  Foreground="White"   FontSize="14" Grid.Column="2">
             <Run  Text="Выберите параметры для пропуска"></Run>
             <LineBreak></LineBreak>

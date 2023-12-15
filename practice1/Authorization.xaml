@@ -14,11 +14,11 @@
             <ColumnDefinition Width="3*" ></ColumnDefinition>
             <ColumnDefinition  ></ColumnDefinition>
         </Grid.ColumnDefinitions>
-    
+        
         <StackPanel Grid.Row="1" Grid.Column="1"  Name="sp"    VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock TextAlignment="Center"  Foreground="White" Width="200" FontFamily="/Fonts/#Gogh" Height="60" Text="Смородинка"   FontSize="20" Margin="0,5,0,0" Padding="55,20,0,0"  >
                 <TextBlock.Background>
-                    <ImageBrush  ImageSource="/Image/icon_app.png" Stretch="Uniform"  AlignmentX="Left">
+                    <ImageBrush   ImageSource="/Image/icon_app.png" Stretch="Uniform"  AlignmentX="Left">
                     </ImageBrush>
                 </TextBlock.Background>
             </TextBlock>
